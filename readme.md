@@ -6,33 +6,33 @@ This is a LaTeX class designed to typeset my Master's Degree Thesis in Physics a
 
 The first time, you will need to make the file executable running
 
-"chmod +x compilepdf.sh"
+``chmod +x compilepdf.s``
 
 And then you will be able to run
 
-"./compilepdf.sh thesisclass"
+``./compilepdf.sh thesisclas``
 
-## Option 2: Manually with "pdflatex"
+## Option 2: Manually with ``pdflatex``
 
 You can also compile the documents manually. First, you need to compile the titlepage:
 
-"cd Chapters/Frontmatter"
-"pdflatex titlepage"
+``cd Chapters/Frontmatter``
+``pdflatex titlepage``
 
 Then go to the main folder and compile the document
 
-"cd .."
-"cd .."
-"pdflatex thesisclass"
+``cd ..``
+``cd ..``
+``pdflatex thesisclass``
 
 Make the bibliography and glossary
 
-"biber thesisclass"
-"makeglossaries thesisclass"
+``biber thesisclass``
+``makeglossaries thesisclass``
 
 And finally compile again
 
-"pdflatex thesisclass" 
+``pdflatex thesisclass`` 
 
 
 
