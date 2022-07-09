@@ -1,0 +1,109 @@
+%% thesisclass.sty
+%% Copyright 2022 D.Piciocchi
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status 'maintained'.
+% 
+% The Current Maintainer of this work is D. Piciocchi.
+%
+% This work consists of the files masterthesis.cls, thesisclass.sty,
+% Master_Thesis.tex, Bibliography.bib, glossary.tex, compilepdf.sh,
+% the Chapters folder containing titlepage.tex, titlepage.pdf,
+% abstract.tex, acknowledgements.tex, instructions.tex
+% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% MAIN FILE %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% MAIN FILE %%%%%%%%%%
+
+\documentclass[12pt,a4paper,twoside,onecolumn,openright]{thesisclass}
+
+%%%%%% METADATA CREATION %%%%%%%%%%%%%%
+
+% This is done in this way since the pdfx package is being used. 
+% If in any case you need to drop that, you will also add hyperref and metadata creation can be done with that as well. Otherwise, edit the xmpdata file directly.
+
+\begin{filecontents*}[overwrite]{\jobname.xmpdata}
+    \Title{A class to typeset your Master Thesis}
+    \Author{Diego Piciocchi}
+    \Language{british}
+    \Subject{This document contains all the information on how to use this LaTeX class.}
+    \Keywords{latex\sep class\sep thesis}
+\end{filecontents*}
+
+%%%%% BIBLIOGRAPHY SOURCE FILE %%%%%%%%%
+
+\addbibresource{Bibliography.bib}
+
+%%%%% MAKING GLOSSARY %%%%%%%%%
+
+\makeglossaries
+\loadglsentries{glossary}
+
+%%% GRAPHICS PATH AND DOC SPECIFIC COMMANDS %%%%
+
+\graphicspath{{images}%
+{images/frontmatter}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% DOCUMENT BEGINNING %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+% FRONT MATTER 
+
+\frontmatter %Denotes Frontmatter beginning
+
+\pagenumbering{roman} % Roman page numbering prior to the start of the thesis
+
+% For now, the title page and dedication are included as a separate pdf to allow setting different margins for it in an easy way.
+
+\includepdf[pages=1-3]{Chapters/Frontmatter/titlepage.pdf}
+\cleardoublepage
+\pagestyle{plain} % Suppress headers for the pre-content pages
+\input{Chapters/Frontmatter/acknowledgements}
+\input{Chapters/Frontmatter/abstract}\cleardoublepage
+
+% Table of Contents, List of Tables and List of Figures
+
+\tableofcontents*
+%\listoftables*
+%\listoffigures*
+
+%% MAIN MATTER 
+
+\mainmatter
+\pagestyle{ruled}
+
+\input{Chapters/Instructions}\cleardoublepage
+
+%% BACK MATTER 
+
+\backmatter
+
+% Glossary, list of terms
+
+\glsaddall % this adds all entries to the glossary
+\printglossary[type=\acronymtype, toctitle=Acronyms]
+\printglossary[title=List of Terms, toctitle=Glossary]
+
+% Bibliography
+
+\cleardoublepage
+
+\printbibliography[title={Bibliography}]
+
+\end{document}
+
