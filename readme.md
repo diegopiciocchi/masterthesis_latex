@@ -10,7 +10,7 @@ The first time, you will need to make the file executable running
 
 And then you will be able to run
 
-``./compilepdf.sh thesisclas``
+``./compilepdf.sh thesisclass``
 
 ## Option 2: Manually with ``pdflatex``
 
