@@ -1,43 +1,38 @@
-# computationalphysics2021
-Repository for the course Computational Physics help by Prof. Pederiva at unitn.
+# thesisclass LaTeX Class
 
-## Exercise 1: Scattering of H atoms an Kr atoms
+This is a LaTeX class designed to typeset my Master's Degree Thesis in Physics at the University of Trento. All the instructions, which also serve as a basic output example, are in the PDF file produced by the TeX files in the repository. For the sake of simplicity, I leave here the instructions to compile the document.
 
-1. 1D harmonic oscillator solution with Numerov method
-2. 3D harmonic oscillator with the same method
-3. Implementation of the recursive formulas for the Bessel functions
-4. Rescaling of the problem units
-5. A mathematical proof
-6. Modification of Numerov code for interatomic potential and calculation of the phase shift
-7. Calculation of the cross section
+## Option 1: Using the included bash script
 
-## Exercise 2: Mean Field Methods and Hartree Fock
+The first time, you will need to make the file executable running
 
-1. Calculation of Hydrogen ground state via variational procedure
-2. Graphical representation of Hydrogen WF and electronic density
-3. Calculation of Helium ground state energy via Hartree-Fock method.
-4. Graphical representation of Helium WF and electronic density
-5. Berillium ground state without contraction
-6. Graphical representation of Berillium WFs and electronic densities
+"chmod +x compilepdf.sh"
 
-## Exercise 3: DFT for clusters of alkali atoms 
+And then you will be able to run
 
-### TODO
+"./compilepdf.sh thesisclass"
 
-1. Write a program to compute the densities in the uncorrelated and non-interacting electrons case
-2. Self consistent procedure acconting for direct, exchange and correlation terms.
-3. Polarisation calculation
+## Option 2: Manually with "pdflatex"
 
-## Exercise 4: Variational MC for Superfluid He
+You can also compile the documents manually. First, you need to compile the titlepage:
 
-3. Setup of the initial configuration of the system for the simulation. 
+"cd Chapters/Frontmatter"
+"pdflatex titlepage"
 
-### TODO
+Then go to the main folder and compile the document
 
-1. Write down explicit expresison for the local kinetic energy in two different ways as shown in the lecture. (to be corrected...)
-3. Work out hbar/2m when using the proper energy and length units of the problem (to be corrected...)
-4. Metropolis algorithm to sample the square modulus of the WF and compute the energy. Minimise the energy. (waiting for the previous two 
-points to compute local kinetic energy...)
-6.  Repeat the simulation for other 2 densities and find the minimum of the density. (Once point 4 is done, this is done as well...)
+"cd .."
+"cd .."
+"pdflatex thesisclass"
+
+Make the bibliography and glossary
+
+"biber thesisclass"
+"makeglossaries thesisclass"
+
+And finally compile again
+
+"pdflatex thesisclass" 
+
 
 
