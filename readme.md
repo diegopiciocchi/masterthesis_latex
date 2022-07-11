@@ -34,5 +34,8 @@ And finally compile again
 
 ``pdflatex thesisclass`` 
 
+## Final Notice
+
+Please remember that this project is still under development, so mistakes are likely disseminated in the code and manual. 
 
 
