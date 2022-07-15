@@ -45,7 +45,7 @@ printf "\n COMPILING THE TEMPLATE \n"
 pdflatex $1 
 # Make glossary
 printf "\n NOW MAKING THE GLOSSARY \n"  
-makeglossary $1 
+makeglossaries $1 
 # Make bibliography
 printf "\n NOW MAKING THE BIBLIOGRAPHY \n"
 biber $1
@@ -53,4 +53,4 @@ biber $1
 printf "\n NOW COMPILING AGAIN THE MAIN DOCUMENT \n"
 pdflatex $1 
 # Clear aux files. You can avoid this if you need them 
-rm $1.acn $1.aux $1.bbl $1.bcf $1.blg $1.glo $1.ist $1.lof $1.log $1.lot $1.run.xml $1.toc $1.xmpdata pdfa.xmpi
+rm $1.acn $1.aux $1.bbl $1.bcf $1.blg $1.glo $1.ist $1.lof $1.log $1.lot $1.run.xml $1.toc $1.xmpdata pdfa.xmpi $1.glg $1.gls $1.acr $1.alg
