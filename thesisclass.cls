@@ -23,6 +23,9 @@
 %%%%%%%%%%%%%% CLASS FILE %%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+\NeedsTeXFormat{LaTeX2e}
+
 \ProvidesClass{masterthesis}[2022/07/08 masterthesis class]
 
 \newcommand{\@classname}{masterthesis} % Class name
@@ -36,3 +39,4 @@
 
 % Load configuration code and packages
 \input{thesisclass.sty} % Load the code common to all classes
+

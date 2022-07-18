@@ -23,12 +23,14 @@
 %%%%%%%%%%%% PACKAGES FILE %%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 % Language and input packages 
 
 \RequirePackage[T1]{fontenc} 
 \RequirePackage[utf8]{inputenc} %Package for utf 8 bit encoding
 \RequirePackage[british]{babel}
 \RequirePackage{csquotes}
+\RequirePackage{kantlipsum} % A simply useless package
 \RequirePackage{pdfpages}
 
 % Micro-typographic adjustments
@@ -75,10 +77,13 @@
 
 % Typesetting packages and others 
 
-\RequirePackage{kantlipsum} % dummy text
+\RequirePackage{kantlipsum} % A simply useless package
 \RequirePackage{changepage}
 \RequirePackage{silence}
 \WarningFilter{latex}{Writing or overwriting file} % silences a warning when overwriting metadata file
+
+%Package for calculations
+\RequirePackage{calc}
 
 
 % Bibliography
@@ -114,9 +119,12 @@
 	\ifentrytype{book}{\clearfield{doi}}{}
 }
 
-% Package to make this file PDF/A compliant. 
+% Package to make this file PDF/A compliant. You can choose between levels of compliance from 1 to 4. Sadly, only b level files can be produced. The University of Trento requires 1. Notice that this package also loads hyperref and xcolor. No need to call them. Options for them can be called separately. The mathxmp option is important.
 % This package may cause problems with bookmarks when using mathematical symbols in titles of sections and stuff. 
 \RequirePackage[a-1b,mathxmp]{pdfx}[2018/12/22]
+
+% \RequirePackage{hyperref}
+% \RequirePackage{xcolor}
 
 \hypersetup{
 	colorlinks=true,
@@ -125,6 +133,7 @@
 } 
 
 \RequirePackage[open, openlevel=1]{bookmark}
+
 \RequirePackage[acronym, toc]{glossaries} % This makes the glossary
 
 
@@ -188,9 +197,37 @@
 \setsecnumdepth{subsection}
 \settocdepth{subsection}
 
-
 %%% OTHER SETTINGS
 
+% This increases the line spacing by 7%
+% Delete this in case the document gets too long, the default spacing is not bad after all.
+
+\DisemulatePackage{setspace}
+\RequirePackage{setspace}
+\setstretch{1.07}
+
+
+%% Make a new figure command whose extension into the wide margin can be customised by the user 
+
+% Takes as input 1) pos specifier 2) size parameter 3) file name 5) label 5) caption for lof 6) caption 
+
+
+\newcommand{\printfigure}[6]{%
+	\begin{figure}[#1]
+		\begin{center}
+		\checkoddpage
+		\ifoddpage
+			\addtolength{\rightskip}{-#2}
+		\else
+			\addtolength{\leftskip}{-#2}
+		\fi
+		\includegraphics[width=\textwidth + #2]{#3}
+		\end{center}
+		\label{#4}
+		\caption[#5]{#6}
+	\end{figure} }
+	
+	
 % Listing for the instruction manual
 \RequirePackage{listings}
 \lstset{basicstyle=\ttfamily,
