@@ -85,6 +85,14 @@
 %Package for calculations
 \RequirePackage{calc}
 
+% Listing for the instruction manual
+\RequirePackage{listings}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+
 
 % Bibliography
 
@@ -227,13 +235,28 @@
 		\label{#4}
 	\end{figure} }
 	
-	
-% Listing for the instruction manual
-\RequirePackage{listings}
-\lstset{basicstyle=\ttfamily,
-  showstringspaces=false,
-  commentstyle=\color{red},
-  keywordstyle=\color{blue}
+% Command for wide equation
+
+\newcommand{\widequation}[3]{%
+	\checkoddpage
+	\ifoddpage
+		\begin{adjustwidth}{0pt}{-#1}
+			\begin{equation} \label{#2}
+				\begin{split}
+					#3
+				\end{split}
+			\end{equation}
+		\end{adjustwidth}
+	\else
+		\begin{adjustwidth}{-#1}{0pt}
+			\begin{equation} \label{#2}
+				\begin{split}
+					#3
+				\end{split}
+			\end{equation}
+		\end{adjustwidth}
+	\fi
 }
+	
 
 

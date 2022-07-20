@@ -1,12 +1,12 @@
 # thesisclass LaTeX Class
 
-This is a LaTeX class designed to typeset my Master's Degree Thesis in Physics at the University of Trento. All the instructions, which also serve as a basic output example, are in the PDF file produced by the TeX files in the repository. For the sake of simplicity, I leave here the instructions to compile the document.
+This is a LaTeX class designed to typeset my Master's Degree Thesis in Physics at the University of Trento. The instruction manual, which also serves as a basic output example, are in the PDF file produced by the TeX files in the repository. For the sake of simplicity, I leave here the instructions to compile the document.
 
 ## Option 1: Using the included bash script
 
 The first time, you will need to make the file executable running
 
-``chmod +x compilepdf.s``
+``chmod +x compilepdf.sh``
 
 And then you will be able to run
 
