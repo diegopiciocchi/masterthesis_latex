@@ -92,13 +92,16 @@ I designed a new command for inserting figures, which is based on the \texttt{fi
 
 \begin{itemize}
 	\item  The figure placement, which is one or more of \texttt{htbp}
-	\item The amount in any unit of measure by which the figureextends in the margin
+	\item The amount in any unit of measure by which the figure extends in the margin
 	\item The figure name
 	\item The figure label
 	\item The figure caption to be included in the list of figures
 	\item The caption to include below the figure
 \end{itemize}
 
+\subsection{A command for equations}
+
+In case you need to print a particularly long equation, I included a command \texttt{\\widequation} which allows you to do so. It takes as argument the amount by which the equation extends in the wider margin, the label of the equation and its content. You can use the syntax of the \texttt{split} environment in this command if the equation is super long and takes up multiple lines. I suggest to use it for equations which would enter the margin by $\approx 1.5/2$cm. For longer equation, I would use a standard \texttt{split} or \texttt{align}.
 
 \section{Typographic Aspects}
 
