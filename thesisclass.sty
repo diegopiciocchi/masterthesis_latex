@@ -32,6 +32,8 @@
 \RequirePackage{csquotes}
 \RequirePackage{kantlipsum} % A simply useless package
 \RequirePackage{pdfpages}
+\RequirePackage{import} % To import pdfs for vectors graphics generated in inkscape.
+\RequirePackage{listings}
 
 % Micro-typographic adjustments
 
@@ -57,16 +59,23 @@
 \RequirePackage{amssymb}
 \RequirePackage{physics} %physics stuff like bra, ket, ...
 \RequirePackage{siunitx} % SI units (you can declare more)
+\RequirePackage{hhline}
 
 % Tables and figure packages 
 
-\RequirePackage{graphicx}
+% \RequirePackage{graphicx}
+\usepackage[export]{adjustbox}% http://ctan.org/pkg/adjustbox
 \RequirePackage{sidecap} % For figures with caption on the side 
 \RequirePackage[tableposition=top]{caption} % Caption customisaiton
+% Custom command to put a single caption for figure and adjacent table
+\DeclareCaptionLabelFormat{andtable}{#1~#2  \&  \tablename~\thetable}
 \RequirePackage{array}
 \RequirePackage{tabularx}
 \RequirePackage{booktabs}
 \RequirePackage{pgfplots}
+\RequirePackage{placeins}
+
+
 
 \RequirePackage{tikz} % For plots with tikz
 \usetikzlibrary{shapes, decorations, calc, arrows}
@@ -84,15 +93,6 @@
 
 %Package for calculations
 \RequirePackage{calc}
-
-% Listing for the instruction manual
-\RequirePackage{listings}
-\lstset{basicstyle=\ttfamily,
-  showstringspaces=false,
-  commentstyle=\color{red},
-  keywordstyle=\color{blue}
-}
-
 
 % Bibliography
 
@@ -126,6 +126,7 @@
 	\ifentrytype{online}{}{\ifentrytype{misc}{}{\clearfield{url}}}
 	\ifentrytype{book}{\clearfield{doi}}{}
 }
+
 
 % Package to make this file PDF/A compliant. You can choose between levels of compliance from 1 to 4. Sadly, only b level files can be produced. The University of Trento requires 1. Notice that this package also loads hyperref and xcolor. No need to call them. Options for them can be called separately. The mathxmp option is important.
 % This package may cause problems with bookmarks when using mathematical symbols in titles of sections and stuff. 
